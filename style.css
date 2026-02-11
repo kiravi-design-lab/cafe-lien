@@ -6,13 +6,8 @@
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
-  line-height: 1.8;
   color: #333;
-}
-
-img {
-  width: 100%;
-  display: block;
+  line-height: 1.8;
 }
 
 .container {
@@ -31,8 +26,8 @@ img {
 
 .section-title {
   text-align: center;
-  font-size: 26px;
   margin-bottom: 60px;
+  font-size: 26px;
   letter-spacing: 2px;
 }
 
@@ -55,22 +50,38 @@ img {
 
 .logo {
   font-size: 20px;
-  letter-spacing: 2px;
 }
 
-nav ul {
+/* PCナビ */
+
+.nav-menu ul {
   list-style: none;
   display: flex;
 }
 
-nav li {
+.nav-menu li {
   margin-left: 30px;
 }
 
-nav a {
+.nav-menu a {
   text-decoration: none;
   color: #333;
-  font-size: 14px;
+}
+
+/* ハンバーガー */
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 2px;
+  background: #333;
+  transition: 0.3s;
 }
 
 /* Hero */
@@ -98,24 +109,6 @@ nav a {
   z-index: 1;
 }
 
-.hero h2 {
-  font-size: 48px;
-  margin-bottom: 20px;
-}
-
-/* About */
-
-.about {
-  display: flex;
-  align-items: center;
-  gap: 60px;
-}
-
-.about-text,
-.about-img {
-  flex: 1;
-}
-
 /* Menu */
 
 .menu-grid {
@@ -124,61 +117,55 @@ nav a {
   gap: 40px;
 }
 
-.menu-item h3 {
-  margin-top: 15px;
-  font-size: 18px;
+.menu-item img {
+  width: 100%;
 }
 
-.menu-item p {
-  color: #777;
-  margin-top: 5px;
-}
-
-/* Contact */
-
-.contact-info {
-  text-align: center;
-  line-height: 2.2;
-  font-size: 15px;
-}
-
-/* Access */
-
+.contact-info,
 .access {
   text-align: center;
 }
-
-/* Footer */
 
 .footer {
   background: #111;
   color: white;
   text-align: center;
   padding: 30px 0;
-  font-size: 14px;
 }
 
-/* Responsive */
+/* スマホ */
 
 @media (max-width: 768px) {
 
-  .section {
-    padding: 70px 0;
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background: white;
+    transition: 0.3s;
+    padding-top: 100px;
   }
 
-  .about {
+  .nav-menu ul {
     flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-menu li {
+    margin: 20px 0;
+  }
+
+  .nav-menu.active {
+    right: 0;
+  }
+
+  .hamburger {
+    display: flex;
   }
 
   .menu-grid {
     grid-template-columns: 1fr;
-  }
-
-  nav ul {
-    display: none;
-  }
-
-  .hero h2 {
-    font-size: 32px;
   }
 }
